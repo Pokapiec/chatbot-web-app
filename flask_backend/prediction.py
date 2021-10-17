@@ -1,4 +1,5 @@
-import torch
+# import torch
+from torch import tensor, argmax
 from transformers import BertForQuestionAnswering
 from transformers import BertTokenizer
 
@@ -35,11 +36,11 @@ def question_answer(question, text):
     assert len(segment_ids) == len(input_ids)
     
     #model output using input_ids and segment_ids
-    output = model(torch.tensor([input_ids]), token_type_ids=torch.tensor([segment_ids]))
+    output = model(tensor([input_ids]), token_type_ids=tensor([segment_ids]))
     
     #reconstructing the answer
-    answer_start = torch.argmax(output.start_logits)
-    answer_end = torch.argmax(output.end_logits)
+    answer_start = argmax(output.start_logits)
+    answer_end = argmax(output.end_logits)
     answer = ''
     if answer_end >= answer_start:
         answer = tokens[answer_start]
