@@ -4,10 +4,10 @@ export default function ChatView({msg, side}) {
     const photoLeft = "https://cdn.technologyadvice.com/wp-content/uploads/2018/02/friendly-chatbot.jpg"
 
     return (
-        <div className="chat-message">
+        <div className="chat-message ">
             <div className={`flex items-end ${side === 'right' ? "justify-end" : ""}`}>
                 <div className={`flex flex-col space-y-2 text-xs max-w-xs mx-2 ${side === 'right' ? "order-1 items-end" : "order-2 items-start"} `}>
-                <div><span className={`px-4 py-2 rounded-lg inline-block rounded-${side === 'right' ? "br" : "bl"}-none ${side === 'right' ? "bg-gray-300 text-gray-600" : "bg-blue-600 text-white"}`}>{msg}</span></div>
+                <div><span className={`px-4 py-2 rounded-lg inline-block rounded-${side === 'right' ? "br" : "bl"}-none ${side === 'right' ? "bg-gray-300 text-gray-600" : "bg-blue-600 text-white"}  `}>{msg}</span></div>
                 </div>
                 <img src={side === 'right' ? photoRight : photoLeft} alt="My profile" className={`w-6 h-6 rounded-full ${side === 'right' ? "order-2" : "order-1"}`}/>
             </div>

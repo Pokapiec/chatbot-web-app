@@ -2,7 +2,7 @@ import CSRFTOKEN from './CSRFForChat';
 
 export default function ChatInput({ userMessage, updateInput, onEnterClick, addMessage }) {
     return (
-        <div className="border-t-2 border-gray-200 px-4 pt-4 mb-5 sm:mb-3 text-2lg">
+        <div className="border-t border-gray-200 dark:border-gray-900 px-4 pt-4 mb-5 sm:mb-3 text-2lg">
             <div className="relative flex">
                 <span className="absolute inset-y-0 flex items-center">
                     <button type="button" className="classic-btn text-gray-500 hover:bg-gray-300 h-12 w-12 ">
@@ -11,7 +11,7 @@ export default function ChatInput({ userMessage, updateInput, onEnterClick, addM
                         </svg>
                     </button>
                 </span>
-                <input type="text" placeholder="Write Something" className="w-full focus:outline-none focus:placeholder-gray-400 text-gray-600 placeholder-gray-600 pl-12 bg-gray-200 rounded-full py-3" 
+                <input type="text" placeholder="Write Something" className="w-full focus:outline-none focus:placeholder-gray-400 text-gray-600 dark:text-gray-200 placeholder-gray-600 dark:placeholder-gray-300 pl-12 bg-gray-200 dark:bg-gray-700 rounded-full py-3" 
                 value={userMessage} onChange={updateInput} onKeyDown={onEnterClick}/>
                 <div className="absolute right-0 items-center inset-y-0 hidden sm:flex">
                     {/* <button type="button" className="classic-btn text-gray-500 hover:bg-gray-300 h-10 w-10">

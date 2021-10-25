@@ -1,6 +1,14 @@
 venv
 env
+genv
 frontend/node_modules
+frontend/package-lock.json
+frontend/src
+distilbert-base-uncased-distilled-squad
+
+src
+tailwind.config.js
+
 node_modules
 /.pnp
 .pnp.js
@@ -17,5 +25,5 @@ yarn-error.log*
 backend
 manage.py
 db.sqlite3
-chatbot_logic
+logic
 chatbot_app

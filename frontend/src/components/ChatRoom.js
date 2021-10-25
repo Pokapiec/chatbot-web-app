@@ -43,6 +43,7 @@ export default function ChatView({ onHideClick }) {
     let headers = new Headers();
     // headers.append('X-CSRFToken', csrftoken);
     // const jsonData = JSON.stringify({message: userMessage});
+    // const resp = await axios.get(`http://127.0.0.1:5000/get-response/?message=${userMessage}`);
     // const resp = await axios.post('http://127.0.0.1:8000/get-response', data);
     const resp = await axios.get(`https://chatbot-models-app.herokuapp.com/get-response/?message=${userMessage}`);
     const answer = resp.data
@@ -90,7 +91,7 @@ export default function ChatView({ onHideClick }) {
 
 
   return (
-    <div className="m-0 w-96 border rounded-lg fixed bottom-2 right-2 bg-white" >
+    <div className="chat-room m-0 w-11/12 md:w-96 border-2 rounded-lg fixed bottom-2 right-2 bg-white dark:bg-gray-800 dark:text-gray-100 dark:border-gray-900 transform scale-0 transition duration-300 ease-in-out shadow-lg" >
       <div className="flex-1 p:2 justify-between flex flex-col h-full">
         <ChatName onHideClick={onHideClick}/>
         <div id="messages" className="h-72 flex content-end flex-col-reverse space-y-4 space-y-reverse p-3 overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch">
