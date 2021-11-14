@@ -5,6 +5,10 @@ frontend/node_modules
 frontend/package-lock.json
 frontend/src
 distilbert-base-uncased-distilled-squad
+DialoGPT-small
+bert-base-multilingual-cased-finetuned-polish-squad2
+albert-xlarge-v2-squad-v2
+papuGaPT2
 
 src
 tailwind.config.js

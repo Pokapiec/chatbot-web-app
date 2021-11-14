@@ -1,9 +1,30 @@
 import React from 'react';
+import { useState } from 'react';
 
 export default function ChatName({ onHideClick }) {
 
+    const [maximized, setMaximized] = useState(false);
+
+    const maximize = () => {
+        const chat = document.querySelector('.chat-room');
+        const messages = document.querySelector('#messages-place');
+
+        const chatClasses = ['w-10/12', 'md:w-96', 'bottom-2', 'right-2', 'bottom-0', 'right-0', 'w-full', 'rounded-lg', 'h-screen']
+        for(const elem of chatClasses) {
+            chat.classList.toggle(elem)
+        }
+
+        const messagesClasses = ['h-72',]
+        for(const elem of messagesClasses) {
+            messages.classList.toggle(elem)
+        }
+
+        if (maximized) setMaximized(false)
+        else setMaximized(true)
+    }
+
     return (
-        <div className="flex justify-between border-b border-gray-200 dark:border-gray-900 py-3 px-3">
+        <div className="transition duration-300 ease-in-out flex justify-between border-b border-gray-200 dark:border-gray-900 py-3 px-3">
             <div className="m-0 flex items-center space-x-4">
                 <img src="https://cdn.technologyadvice.com/wp-content/uploads/2018/02/friendly-chatbot.jpg" alt="" className="w-10 h-10 rounded-full" />
                 <div className="flex flex-col leading-tight">
@@ -18,13 +39,24 @@ export default function ChatName({ onHideClick }) {
                 </div>
             </div>
             <div className="flex items-center space-x-2">
+                <button type="button" className="classic-btn text-gray-500 dark:text-gray-100 hover:bg-gray-300 dark:hover:bg-green-500 h-10 w-10" onClick={maximize}>
+                    {!maximized ?
+                    (<svg className="h-6 w-6 fill-stroke" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">  <path stroke="none" d="M0 0h24v24H0z"></path>  <polyline points="16 4 20 4 20 8"></polyline>  <line x1="14" y1="10" x2="20" y2="4"></line>  <polyline points="8 20 4 20 4 16"></polyline>  <line x1="4" y1="20" x2="10" y2="14"></line></svg>)
+                    :
+                    (<svg className="h-6 w-6 fill-stroke" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">  <path stroke="none" d="M0 0h24v24H0z"></path>  <polyline points="5 9 9 9 9 5"></polyline>  <line x1="3" y1="3" x2="9" y2="9"></line>  <polyline points="5 15 9 15 9 19"></polyline>  <line x1="3" y1="21" x2="9" y2="15"></line>  <polyline points="19 9 15 9 15 5"></polyline>  <line x1="15" y1="9" x2="21" y2="3"></line>  <polyline points="19 15 15 15 15 19"></polyline>  <line x1="15" y1="15" x2="21" y2="21"></line></svg>)
+                    }
+                    
+                </button>
 
-                <button type="button" className="classic-btn text-gray-500 dark:text-gray-100 hover:bg-gray-300 dark:hover:bg-green-500 h-10 w-10">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" onClick={onHideClick}>
-                        <path fillRule="evenodd" d="M3.707 2.293a1 1 0 00-1.414 1.414l14 14a1 1 0 001.414-1.414l-1.473-1.473A10.014 10.014 0 0019.542 10C18.268 5.943 14.478 3 10 3a9.958 9.958 0 00-4.512 1.074l-1.78-1.781zm4.261 4.26l1.514 1.515a2.003 2.003 0 012.45 2.45l1.514 1.514a4 4 0 00-5.478-5.478z" clipRule="evenodd" />
-                        <path d="M12.454 16.697L9.75 13.992a4 4 0 01-3.742-3.741L2.335 6.578A9.98 9.98 0 00.458 10c1.274 4.057 5.065 7 9.542 7 .847 0 1.669-.105 2.454-.303z" />
+                
+
+                <button type="button" className="classic-btn text-gray-500 dark:text-gray-100 hover:bg-gray-300 dark:hover:bg-green-500 h-10 w-10" onClick={onHideClick}>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
                     </svg>
                 </button>
+
+
             </div>
         </div>
     );

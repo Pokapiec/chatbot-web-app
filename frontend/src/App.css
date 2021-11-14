@@ -6,3 +6,9 @@ body {
     flex-wrap: wrap;
     justify-content: flex-end;
 }
+
+::selection {
+    color: lightgray;
+    background: #097954;
+}
+
