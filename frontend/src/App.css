@@ -1,3 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: 16px;
+}
+  
+  /* Track */
+::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background: #edf2f7;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e0;
+    border-radius: 100vh;
+    border: 3px solid #edf2f7;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #616974;
+}
+
+
+.dark ::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background: #edf2f71f;
+}
+  
+  /* Handle */
+.dark ::-webkit-scrollbar-thumb {
+    background: #0505051f;
+    border-radius: 100vh;
+    border: 3px solid #4e4e4e00;
+}
+  
+  /* Handle on hover */
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: #a0aec077;
+}
+
+* {
+    font-family: 'Quicksand', sans-serif;
+    box-sizing: border-box;
+}
+
 body {
     padding: 0;
 }

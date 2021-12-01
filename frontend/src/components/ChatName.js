@@ -14,10 +14,14 @@ export default function ChatName({ onHideClick }) {
             chat.classList.toggle(elem)
         }
 
-        const messagesClasses = ['h-72',]
-        for(const elem of messagesClasses) {
-            messages.classList.toggle(elem)
+        if (messages.classList.contains('h-72')) {
+            messages.classList.replace('h-72', 'h-full')
+        } else {
+            messages.classList.replace('h-full', 'h-72')
         }
+        // for(const elem of messagesClasses) {
+        //     messages.classList.toggle(elem)
+        // }
 
         if (maximized) setMaximized(false)
         else setMaximized(true)

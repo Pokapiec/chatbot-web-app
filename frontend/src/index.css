@@ -3,27 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.scrollbar-w-2::-webkit-scrollbar {
-  width: 0.25rem;
-  height: 0.25rem;
-}
-
-.scrollbar-track-blue-lighter::-webkit-scrollbar-track {
-  --bg-opacity: 1;
-  background-color: #f7fafc;
-  background-color: rgba(247, 250, 252, var(--bg-opacity));
-}
-
-.scrollbar-thumb-blue::-webkit-scrollbar-thumb {
-  --bg-opacity: 1;
-  background-color: #edf2f7;
-  background-color: rgba(237, 242, 247, var(--bg-opacity));
-}
-
-.scrollbar-thumb-rounded::-webkit-scrollbar-thumb {
-  border-radius: 0.25rem;
-}
-
 
 .classic-btn {
   @apply inline-flex items-center justify-center rounded-full transition duration-300 ease-in-out focus:outline-none;
@@ -34,11 +13,14 @@
 }
 
 .content-container {
-  @apply p-10 text-center border-2 dark:border-black shadow-xl m-3 rounded-lg transition duration-200 ease-in-out hover:bg-gray-200 active:bg-gray-400 dark:hover:bg-gray-700 dark:active:bg-gray-900;
+  @apply p-10 text-center border-2 dark:border-black shadow-xl m-3 rounded-lg transition-all duration-200 ease-in-out hover:bg-gray-200 active:bg-gray-400 dark:hover:bg-gray-700 dark:active:bg-gray-900 dark:bg-gray-900 dark:bg-opacity-20 transform hover:-translate-y-1;
 }
-  
 
-body {
-  margin: 0;
-  padding: 0;
+.tooltip {
+  @apply invisible absolute;
 }
+
+.has-tooltip:hover .tooltip {
+  @apply visible z-50
+}
+

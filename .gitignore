@@ -5,7 +5,10 @@ frontend/node_modules
 frontend/package-lock.json
 frontend/src
 distilbert-base-uncased-distilled-squad
+models
 DialoGPT-small
+DialoGPT-medium
+
 bert-base-multilingual-cased-finetuned-polish-squad2
 albert-xlarge-v2-squad-v2
 papuGaPT2
