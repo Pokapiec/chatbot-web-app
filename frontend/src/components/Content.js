@@ -7,6 +7,7 @@ import Sidebar from './Sidebar';
 import axios from 'axios';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import About from './About';
+import Footer from './Footer';
 
 
 export default function Content({ choseMode, onClickHideSidebar }) {
@@ -101,7 +102,7 @@ export default function Content({ choseMode, onClickHideSidebar }) {
     }
 
     return (
-        <div className="content-site flex flex-col flex-wrap content-center dark:bg-gray-800 dark:text-gray-200 relative min-h-screen">
+        <main className="content-site flex flex-col flex-wrap content-center dark:bg-gray-800 dark:text-gray-200 relative min-h-screen">
 
             <Router>
                 <Sidebar choseMode={choseMode} onHideClick={onClickHideSidebar} />
@@ -110,17 +111,19 @@ export default function Content({ choseMode, onClickHideSidebar }) {
                         <>
                             <ContentHeader title={language === "EN" ? "Warsaw institute of technology information" : "Informacje o Politechnice Warszawskiej"} {...headerProps} />
                             <ContentTexts texts={texts} language={language} setAndUnfoldText={setAndUnfoldText} />
+                            <Footer />
                         </>
                     </Route>
                     <Route path='/about' exact>
                         <>
                             <ContentHeader title={language === "EN" ? "Research results" : "Wyniki badań"} {...headerProps} />
-                            <About />
+                            <About dark={dark} language={language}/>
+                            <Footer />
                         </>
                     </Route>
                 </Switch>
             </Router>
-        </div>
+        </main>
     );
 }
 

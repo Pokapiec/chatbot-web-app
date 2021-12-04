@@ -7,7 +7,7 @@ import React from 'react';
 import { LanguageContext, TextContext } from './components/context/Contexts';
 import './App.css';
 import axios from 'axios';
-axios.defaults.baseURL = 'http://192.168.1.105:5000';
+axios.defaults.baseURL = 'http://192.168.1.103:5000';
 
 function App() {
 
@@ -74,8 +74,19 @@ function App() {
     }, 500)
   }
 
+  const onEscapeClose = (e) => {
+    const chat = document.querySelector('.chat-room')
+    const sidebar = document.querySelector('.sidebar')
+    if (e.keyCode === 27) {
+      if (chat.classList.contains('scale-100'))
+        onClickHideChat()
+      else if (!sidebar.classList.contains('-translate-x-full'))
+      onClickHideSidebar()
+    }
+  }
+
   return (
-    <div className="m-0">
+    <div className="m-0" onKeyUp={onEscapeClose}>
 
       <TextContext.Provider value={{ textId, settextId }}>
         <LanguageContext.Provider value={{ language, setlanguage }}>

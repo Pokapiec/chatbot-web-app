@@ -2,8 +2,6 @@ venv
 env
 genv
 frontend/node_modules
-frontend/package-lock.json
-frontend/src
 distilbert-base-uncased-distilled-squad
 models
 DialoGPT-small

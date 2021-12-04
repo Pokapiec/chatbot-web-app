@@ -14,16 +14,27 @@ module.exports = {
         wiggle: {
           '0%, 100%': { transform: 'rotate(-3deg)' },
           '50%': { transform: 'rotate(3deg)' },
+        },
+        slide: {
+          '0%': { transform: 'translateX(-100%)', opacity: '0%' },
+          '100%': { transform: 'translateX(0%)', opacity: '100%' },
+        },
+        shortspin: {
+          'from': {transform: 'rotate(0deg)'},
+          'to': {transform: 'rotate(360deg)'}
         }
       },
        animation: {
         wiggle: 'wiggle 0.2s ease-in-out infinite',
+        slide: 'slide 1s ease-in-out forwards',
+        shortspin: 'shortspin 1s ease-in-out forwards'
        },
     },
   },
   variants: {
     scrollbar: ['dark'],
     extend: {
+      tableLayout: ['hover', 'focus'],
       backgroundColor: ['active', 'group-focus'],
       animation: ['hover', 'focus', 'group-hover'],
       divideColor: ['group-hover'],

@@ -79,7 +79,7 @@ export default function ChatRoom({ onHideClick, casualQuery }) {
 
 
   return (
-    <div className="chat-room m-0 w-10/12 md:w-96 border-2 rounded-lg fixed bottom-2 right-2 bg-white dark:bg-gray-700 dark:text-gray-100 dark:border-gray-800 transform scale-0 transition-all duration-300 ease-in-out shadow-lg z-40" >
+    <div className="chat-room m-0 w-10/12 md:w-96 border-2 rounded-lg fixed bottom-2 right-2 bg-white dark:bg-gray-700 dark:text-gray-100 dark:border-gray-800 transform scale-0 transition-all duration-300 ease-in-out shadow-lg z-40">
       <div id="messages" className="flex-1 p:2 justify-between flex flex-col h-full">
         <ChatName onHideClick={onHideClick} />
         <div id="messages-place" className="h-72 flex content-end flex-col-reverse space-y-4 space-y-reverse p-3 overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch">

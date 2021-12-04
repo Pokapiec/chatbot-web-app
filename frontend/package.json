@@ -9,8 +9,11 @@
     "@testing-library/user-event": "^12.8.3",
     "@themesberg/flowbite": "^1.1.1",
     "axios": "^0.22.0",
+    "canvasjs-react-charts": "^1.0.5",
     "react": "^17.0.2",
+    "react-charts": "^2.0.0-beta.7",
     "react-dom": "^17.0.2",
+    "react-google-charts": "^3.0.15",
     "react-router-dom": "5.2.0",
     "react-scripts": "^3.4.4",
     "web-vitals": "^1.1.2"

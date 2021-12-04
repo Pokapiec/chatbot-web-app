@@ -1,11 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
-
 ::-webkit-scrollbar {
     width: 12px;
     height: 16px;
 }
-  
-  /* Track */
+
+/* Track */
 ::-webkit-scrollbar-track {
     border-radius: 100vh;
     background: #edf2f7;
@@ -21,20 +20,23 @@
     background: #616974;
 }
 
-
 .dark ::-webkit-scrollbar-track {
     border-radius: 100vh;
     background: #edf2f71f;
 }
-  
-  /* Handle */
+
+
+/* Handle */
+
 .dark ::-webkit-scrollbar-thumb {
     background: #0505051f;
     border-radius: 100vh;
     border: 3px solid #4e4e4e00;
 }
-  
-  /* Handle on hover */
+
+
+/* Handle on hover */
+
 .dark ::-webkit-scrollbar-thumb:hover {
     background: #a0aec077;
 }
@@ -47,6 +49,7 @@
 body {
     padding: 0;
 }
+
 .container {
     display: flex;
     flex-wrap: wrap;
@@ -58,3 +61,110 @@ body {
     background: #097954;
 }
 
+@keyframes slidein {
+    0% {
+        position: relative;
+        opacity: 0%;
+        left: -100%;
+    }
+    100% {
+        position: relative;
+        opacity: 100%;
+        left: 0%;
+    }
+}
+
+.slider {
+    transition: transform 250ms;
+    opacity: 0;
+    
+}
+
+.slider:hover {
+    transform: translateY(-7px);
+}
+
+.slider:nth-child(1) {
+    animation: slidein 1s ease-in-out 0.1s forwards;
+}
+
+.slider:nth-child(2) {
+    animation: slidein 1s ease-in-out 0.3s forwards;
+}
+
+.slider:nth-child(3) {
+    animation: slidein 1s ease-in-out 0.6s forwards;
+}
+
+tr {
+    text-align: center;
+    border-bottom: 1px solid rgb(184, 184, 184);
+    /* border-left: 1px solid rgb(92, 92, 92); */
+
+}
+
+td {
+    padding: 8px 10px;
+    border-left: 1px solid rgb(233, 233, 233);
+}
+
+tr:hover {
+    background-color: rgb(235, 235, 235);
+}
+
+tr:active {
+    background-color: rgb(196, 196, 196);
+}
+
+th {
+    border-bottom: 1px solid rgb(184, 184, 184);
+    padding: 0 10px 0 10px;
+}
+
+.dark tr:hover {
+    background-color: rgb(32, 33, 39);
+}
+
+.dark tr:active {
+    background-color: rgb(22, 23, 27);
+}
+
+
+@keyframes scalein {
+    0% {
+        transform: scale(0%);
+    }
+    100% {
+        transform: scale(100%);
+    }
+}
+
+.tab {
+    animation: scalein 500ms ease-in-out 0.1s forwards;
+}
+
+.hero {
+    background: linear-gradient(
+          rgba(0, 0, 0, 0.1), 
+          rgba(0, 0, 0, 0.1)
+        ),
+        url('./img/pw_bg2.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.dark .hero {
+    background: linear-gradient(
+          rgba(0, 0, 0, 0.5), 
+          rgba(0, 0, 0, 0.5)
+        ),
+        url('./img/pw_bg2.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
