@@ -6,6 +6,7 @@ distilbert-base-uncased-distilled-squad
 models
 DialoGPT-small
 DialoGPT-medium
+docker-chatbot
 
 bert-base-multilingual-cased-finetuned-polish-squad2
 albert-xlarge-v2-squad-v2

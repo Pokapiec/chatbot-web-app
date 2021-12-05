@@ -31,14 +31,6 @@ export default function Content({ choseMode, onClickHideSidebar }) {
         }
     }
 
-    const changeLanguageLoad = () => {
-        const langTrigger = document.querySelector('#lang')
-        console.log(langTrigger)
-        langTrigger.textContent = "EN"
-        setlanguage("PL")
-
-    }
-
     const changeLanguage = (e) => {
         // console.log(e.currentTarget.textContent)
         if (language === 'EN') {
@@ -77,7 +69,7 @@ export default function Content({ choseMode, onClickHideSidebar }) {
         console.log(lang, darkMode)
         console.log(typeof (darkMode))
 
-        if (lang === "PL") changeLanguageLoad()
+        if (lang === "PL") setlanguage("PL")
         if (darkMode === "true") triggerDarkMode()
 
         const getData = async () => {

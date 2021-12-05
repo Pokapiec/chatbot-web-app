@@ -8,7 +8,9 @@ module.exports = {
         'height': 'height',
         'width': 'width',
         'spacing': 'margin, padding',
-        'visibility': 'visibility'
+        'visibility': 'visibility',
+        'opacity': 'opacity',
+        'left': 'left'
        },
        keyframes: {
         wiggle: {
@@ -16,8 +18,16 @@ module.exports = {
           '50%': { transform: 'rotate(3deg)' },
         },
         slide: {
-          '0%': { transform: 'translateX(-100%)', opacity: '0%' },
-          '100%': { transform: 'translateX(0%)', opacity: '100%' },
+          'from': { 
+            position: 'relative',
+            left: '-100%', 
+            // opacity: '0%' 
+          },
+          'to': { 
+            position: 'relative',
+            left: '0%', 
+            // opacity: "100%" 
+          },
         },
         shortspin: {
           'from': {transform: 'rotate(0deg)'},
