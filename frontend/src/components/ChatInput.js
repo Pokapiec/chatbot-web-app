@@ -1,47 +1,47 @@
 import React from 'react';
 import { LanguageContext } from './context/Contexts';
 import { useContext } from 'react';
+import PropTypes from 'prop-types';
 
-export default function ChatInput({ userMessage, updateInput, onEnterClick, addMessage }) {
+
+export default function ChatInput({ userMessage, updateInput, onEnterClick, addMessage, setMessages }) {
 
     const { language } = useContext(LanguageContext)
+
+    const clearChatArea = () => {
+        if (language === "EN") {
+            setMessages([[1, "Hey i'm your personal Chatbot, how can i help?", "left"]].reverse())
+        } else {
+            setMessages([[1, "Hej! Jestem twoim personalnym Chatbotem, jak mogę pomóc?", "left"]].reverse())
+        }
+    }
 
     return (
         <div className="border-t border-gray-200 dark:border-gray-900 px-4 pt-4 mb-5 sm:mb-3 text-2lg">
             <div className="relative flex">
                 <span className="absolute inset-y-0 flex items-center">
-                    <button type="button" className="classic-btn text-gray-500 dark:text-gray-200 dark:hover:text-gray-800 hover:bg-gray-300  dark:hover:bg-gray-400 h-12 w-12 ">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-6 w-6 ">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path>
-                        </svg>
+                    <button type="button" className="classic-btn text-gray-500 dark:text-gray-200 dark:hover:text-gray-800 hover:bg-gray-300  dark:hover:bg-gray-400 h-12 w-12 " onClick={clearChatArea}>
+                        <svg className="h-6 w-6 text-gray-500" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">  <path stroke="none" d="M0 0h24v24H0z" />  <line x1="4" y1="7" x2="20" y2="7" />  <line x1="10" y1="11" x2="10" y2="17" />  <line x1="14" y1="11" x2="14" y2="17" />  <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />  <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" /></svg>
                     </button>
                 </span>
-                <input type="text" placeholder={language==="EN" ? "Write Something" : "Napisz coś"} className="w-full border-none focus:outline-none focus:placeholder-gray-400 text-gray-600 dark:text-gray-200 placeholder-gray-600 dark:placeholder-gray-300 pl-12 bg-gray-200 dark:bg-gray-600 rounded-full py-3 " 
-                value={userMessage} onChange={updateInput} onKeyDown={onEnterClick}/>
+                <input type="text" placeholder={language === "EN" ? "Write Something" : "Napisz coś"} className="w-full border-none focus:outline-none focus:placeholder-gray-400 text-gray-600 dark:text-gray-200 placeholder-gray-600 dark:placeholder-gray-300 pl-12 bg-gray-200 dark:bg-gray-600 rounded-full py-3 "
+                    value={userMessage} onChange={updateInput} onKeyDown={onEnterClick} />
                 <div className="absolute right-0 items-center inset-y-0 hidden sm:flex">
-                    {/* <button type="button" className="classic-btn text-gray-500 hover:bg-gray-300 h-10 w-10">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-6 w-6 text-gray-600">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"></path>
-                        </svg>
-                    </button>
-                    <button type="button" className="classic-btn text-gray-500 hover:bg-gray-300 h-10 w-10">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-6 w-6 text-gray-600">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                        </svg>
-                    </button>
-                    <button type="button" className="classic-btn text-gray-500 hover:bg-gray-300 h-10 w-10">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-6 w-6 text-gray-600">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                    </button>
-                    <button  onClick={addMessage} type="button" className="classic-btn text-white bg-blue-500 hover:bg-blue-400 h-12 w-12">
+                    <button onClick={addMessage} type="button" className="classic-btn text-white bg-blue-500 hover:bg-blue-400 h-12 w-12">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-6 w-6 transform rotate-90">
                             <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path>
                         </svg>
-                    </button> */}
+                    </button>
                 </div>
             </div>
         </div>
     )
+}
+
+ChatInput.propTypes = {
+    userMessage: PropTypes.string, 
+    updateInput: PropTypes.func, 
+    onEnterClick: PropTypes.func, 
+    addMessage: PropTypes.func, 
+    setMessages: PropTypes.func
 }

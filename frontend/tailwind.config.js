@@ -4,13 +4,20 @@ module.exports = {
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
+      width: {
+        '128': '32rem',
+      },
+      blur: {
+        xs: '2px',
+      },
       transitionProperty: {
         'height': 'height',
         'width': 'width',
         'spacing': 'margin, padding',
         'visibility': 'visibility',
         'opacity': 'opacity',
-        'left': 'left'
+        'left': 'left',
+        'gradientColorStops': 'gradientColorStops',
        },
        keyframes: {
         wiggle: {
@@ -45,12 +52,17 @@ module.exports = {
     scrollbar: ['dark'],
     extend: {
       tableLayout: ['hover', 'focus'],
-      backgroundColor: ['active', 'group-focus'],
+      backgroundColor: ['active', 'group-focus', 'group-hover','hover', 'focus'],
       animation: ['hover', 'focus', 'group-hover'],
       divideColor: ['group-hover'],
       scale: ['responsive', 'hover', 'focus', 'active', 'group-hover'],
       height: ['responsive', 'hover', 'focus', 'active', 'group-hover'],
       visibility: ['hover', 'focus', 'group-hover'],
+      transform: ['hover', 'focus', 'group-hover'],
+      translate: ['hover', 'focus', 'group-hover'],
+      from : ['hover', 'focus', 'group-hover'],
+      backgroundImage: ['hover', 'focus', 'group-hover'],
+      gradientColorStops: ['hover', 'focus', 'group-hover', 'responsive'],
     }
   },
   plugins: [

@@ -149,9 +149,96 @@ th {
           rgba(0, 0, 0, 0.5)
         ),
         url('./img/pw_bg2.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
     color: white;
 }
+
+.game-cell {
+    width: 80%;
+}
+
+.dot-falling {
+    position: relative;
+    left: -9999px;
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+    background-color: #9880ff;
+    color: #9880ff;
+    box-shadow: 9999px 0 0 0 #9880ff;
+    animation: dotFalling 1s infinite linear;
+    animation-delay: .1s;
+  }
+  
+  .dot-falling::before, .dot-falling::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 0;
+  }
+  
+  .dot-falling::before {
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+    background-color: #FFF;
+    color: #FFF;
+    animation: dotFallingBefore 1s infinite linear;
+    animation-delay: 0s;
+  }
+  
+  .dot-falling::after {
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+    background-color: #FFF;
+    color: #FFF;
+    animation: dotFallingAfter 1s infinite linear;
+    animation-delay: .2s;
+  }
+  
+  @keyframes dotFalling {
+    0% {
+      box-shadow: 9999px -6px 0 0 rgba(152, 128, 255, 0);
+    }
+    25%,
+    50%,
+    75% {
+      box-shadow: 9999px 0 0 0 #FFF;
+    }
+    100% {
+      box-shadow: 9999px 6px 0 0 rgba(152, 128, 255, 0);
+    }
+  }
+  
+  @keyframes dotFallingBefore {
+    0% {
+      box-shadow: 9988px -6px 0 0 rgba(152, 128, 255, 0);
+    }
+    25%,
+    50%,
+    75% {
+      box-shadow: 9988px 0 0 0 #FFF;
+    }
+    100% {
+      box-shadow: 9988px 6px 0 0 rgba(152, 128, 255, 0);
+    }
+  }
+  
+  @keyframes dotFallingAfter {
+    0% {
+      box-shadow: 10010px -6px 0 0 rgba(152, 128, 255, 0);
+    }
+    25%,
+    50%,
+    75% {
+      box-shadow: 10010px 0 0 0 #FFF;
+    }
+    100% {
+      box-shadow: 10010px 6px 0 0 rgba(152, 128, 255, 0);
+    }
+  }
+  

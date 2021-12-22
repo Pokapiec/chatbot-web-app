@@ -2,6 +2,8 @@ import React from 'react';
 import { useContext } from 'react';
 import { LanguageContext } from './context/Contexts';
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
+
 
 export default function Sidebar({ choseMode, onHideClick }) {
 
@@ -31,4 +33,9 @@ export default function Sidebar({ choseMode, onHideClick }) {
         </nav>
 
     )
+}
+
+Sidebar.propTypes = {
+    choseMode: PropTypes.func, 
+    onHideClick: PropTypes.func
 }

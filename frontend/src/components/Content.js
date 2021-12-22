@@ -8,6 +8,7 @@ import axios from 'axios';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import About from './About';
 import Footer from './Footer';
+import PropTypes from 'prop-types';
 
 
 export default function Content({ choseMode, onClickHideSidebar }) {
@@ -51,23 +52,25 @@ export default function Content({ choseMode, onClickHideSidebar }) {
         const allTexts = document.querySelectorAll('.QA-text')
 
         for (const text of allTexts) {
-            if (!text.classList.contains('h-0') && text !== textElem) {
-                text.classList.toggle('h-0')
+            if (!text.classList.contains('h-10') && text !== textElem) {
+                text.classList.toggle('h-10')
                 text.classList.toggle('h-80')
+                text.classList.toggle('overflow-auto')
+                text.classList.toggle('overflow-hidden')
+                text.nextElementSibling.classList.toggle('invisible')
             }
         }
-
-        textElem.classList.toggle('h-0')
+        textElem.classList.toggle('h-10')
         textElem.classList.toggle('h-80')
+        textElem.classList.toggle('overflow-auto')
+        textElem.classList.toggle('overflow-hidden')
+        textElem.nextElementSibling.classList.toggle('invisible')
 
     }
 
     useEffect(() => {
         const darkMode = localStorage.getItem('dark')
         const lang = localStorage.getItem('lang')
-
-        console.log(lang, darkMode)
-        console.log(typeof (darkMode))
 
         if (lang === "PL") setlanguage("PL")
         if (darkMode === "true") triggerDarkMode()
@@ -77,10 +80,8 @@ export default function Content({ choseMode, onClickHideSidebar }) {
                 .then(response => {
                     const texts = response.data
                     settexts(texts.texts)
-                    console.log(texts)
                 })
-                .catch(error => console.log("Hey"))
-            console.log(texts)
+                .catch(error => console.log(error))
         }
         getData()
         return
@@ -106,7 +107,7 @@ export default function Content({ choseMode, onClickHideSidebar }) {
                             <Footer />
                         </>
                     </Route>
-                    <Route path='/about' exact>
+                    <Route path='/about'>
                         <>
                             <ContentHeader title={language === "EN" ? "Research results" : "Wyniki badań"} {...headerProps} />
                             <About dark={dark} language={language}/>
@@ -120,4 +121,7 @@ export default function Content({ choseMode, onClickHideSidebar }) {
 }
 
 
-
+Content.propTypes = {
+    choseMode: PropTypes.func, 
+    onClickHideSidebar: PropTypes.func
+}

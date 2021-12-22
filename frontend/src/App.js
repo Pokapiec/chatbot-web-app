@@ -4,12 +4,18 @@ import ChatToggler from './components/ChatToggler';
 import Content from './components/Content';
 import SidebarToggler from './components/SidebarToggler';
 import React from 'react';
-import { LanguageContext, TextContext } from './components/context/Contexts';
+import { LanguageContext, TextContext, CasualContext } from './components/context/Contexts';
 import './App.css';
 import axios from 'axios';
-axios.defaults.baseURL = 'http://192.168.1.103:5000';
+// axios.defaults.baseURL = 'http://192.168.1.103:8000';
+
 
 function App() {
+  // useEffect(() => {
+  //   if (!("ontouchstart" in document.documentElement)) {
+  //     document.documentElement.className += " no-touch";
+  //     }
+  // }, [])
 
   const [casualQuery, setcasualQuery] = useState("&casual=true")
   const [language, setlanguage] = useState("EN");
@@ -55,25 +61,6 @@ function App() {
 
   }
 
-  const delayTooltip = (e) => {
-    const tooltip = e.currentTarget.children[0]
-    setTimeout(() => {
-      if (tooltip.classList.contains('invisible')) {
-        tooltip.classList.toggle('invisible')
-      }
-    }, 500)
-  }
-
-  const delayLeaveTool = (e) => {
-    const tooltip = e.currentTarget.children[0]
-
-    setTimeout(() => {
-      if (!tooltip.classList.contains('invisible')) {
-        tooltip.classList.toggle('invisible')
-      }
-    }, 500)
-  }
-
   const onEscapeClose = (e) => {
     const chat = document.querySelector('.chat-room')
     const sidebar = document.querySelector('.sidebar')
@@ -81,22 +68,28 @@ function App() {
       if (chat.classList.contains('scale-100'))
         onClickHideChat()
       else if (!sidebar.classList.contains('-translate-x-full'))
-      onClickHideSidebar()
+        onClickHideSidebar()
     }
   }
 
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     onClickHideChat()
+  //   }, 1800)    
+  // }, []);
+
   return (
     <div className="m-0" onKeyUp={onEscapeClose}>
-
-      <TextContext.Provider value={{ textId, settextId }}>
-        <LanguageContext.Provider value={{ language, setlanguage }}>
-          <Content choseMode={choseMode} onClickHideSidebar={onClickHideSidebar} />
-          <ChatRoom casualQuery={casualQuery} onHideClick={onClickHideChat} />
-        </LanguageContext.Provider>
-        <SidebarToggler onHideClick={onClickHideSidebar} />
-        <ChatToggler onHideClick={onClickHideChat} />
-      </TextContext.Provider>
-
+      <CasualContext.Provider value={{casualQuery, setcasualQuery}}>
+        <TextContext.Provider value={{ textId, settextId }}>
+          <LanguageContext.Provider value={{ language, setlanguage }}>
+            <Content choseMode={choseMode} onClickHideSidebar={onClickHideSidebar} />
+            <ChatRoom casualQuery={casualQuery} onHideClick={onClickHideChat} />
+          </LanguageContext.Provider>
+          <SidebarToggler onHideClick={onClickHideSidebar} />
+          <ChatToggler onHideClick={onClickHideChat} />
+        </TextContext.Provider>
+      </CasualContext.Provider>
     </div>
   );
 }

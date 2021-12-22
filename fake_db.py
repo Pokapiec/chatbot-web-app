@@ -1,7 +1,7 @@
 import json
 
 def get_data():
-    with open('texts.json', 'r') as f:
+    with open('texts2.json', 'r', encoding='utf8') as f:
         texts = json.load(f)
         return texts
 
@@ -41,7 +41,7 @@ def get_text_from_id(_id, texts):
 #     ] 
 # }
 
-# with open('texts.json', 'w') as f:
+# with open('texts2.json', 'w', encoding='utf8') as f:
 #     json.dump(db, f, indent=True, ensure_ascii=False)
 
 
