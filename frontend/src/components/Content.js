@@ -5,7 +5,7 @@ import ContentTexts from './ContentTexts';
 import ContentHeader from './ContentHeader';
 import Sidebar from './Sidebar';
 import axios from 'axios';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { MemoryRouter as Router, Switch, Route } from 'react-router-dom';
 import About from './About';
 import Footer from './Footer';
 import PropTypes from 'prop-types';

@@ -7,7 +7,7 @@ import React from 'react';
 import { LanguageContext, TextContext, CasualContext } from './components/context/Contexts';
 import './App.css';
 import axios from 'axios';
-// axios.defaults.baseURL = 'http://192.168.1.103:8000';
+// axios.defaults.baseURL = 'http://192.168.1.104:8000';
 
 
 function App() {

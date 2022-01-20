@@ -30,10 +30,10 @@ README.md
 venv
 # models/albert-base-v2-squad2
 models/albert-xlarge-v2-squad-v2*
-# models/DialoGPT-small*
+models/DialoGPT-small*
 models/bert-tiny-finetuned-squadv2*
 
-models/DialoGPT-medium*
+# models/DialoGPT-medium*
 models/distilbert-base-uncased-distilled-squad
 
 # prediction.py

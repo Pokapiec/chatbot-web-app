@@ -7,8 +7,8 @@ class Models:
         self.tokenizer = AutoTokenizer.from_pretrained('models/albert-base-v2-squad2', local_files_only=True)
         self.model = AutoModelForQuestionAnswering.from_pretrained('models/albert-base-v2-squad2', local_files_only=True)
         self.nlp = pipeline('question-answering', model=self.model, tokenizer=self.tokenizer, framework="pt")
-        self.tokenizer_gpt = AutoTokenizer.from_pretrained("models/DialoGPT-small", local_files_only=True)
-        self.model_gpt = AutoModelForCausalLM.from_pretrained("models/DialoGPT-small", local_files_only=True)
+        self.tokenizer_gpt = AutoTokenizer.from_pretrained("models/DialoGPT-medium", local_files_only=True)
+        self.model_gpt = AutoModelForCausalLM.from_pretrained("models/DialoGPT-medium", local_files_only=True)
         self.chat_history_ids = torch.Tensor()
         self.step = 0
 
@@ -38,7 +38,7 @@ def get_answer(question):
         top_p=0.95,
         top_k=50,
         temperature=0.75,
-        num_return_sequences=5,
+        # num_return_sequences=5,
         pad_token_id=models.tokenizer_gpt.eos_token_id)
 
     models.set_history(chat_history_ids)
